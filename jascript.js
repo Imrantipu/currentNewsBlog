@@ -85,6 +85,7 @@ function getNews(cat_id) {
     if (catnews.length <= 0) {
       newslistContainer.innerHTML = `<h2 class="text-center text-xl">No News Found</h2>`;
     } 
+
     else {
         catnews.forEach((news) => {
           let newstitle = news.title;
@@ -95,11 +96,25 @@ function getNews(cat_id) {
           let newsauther = news.author.name;
           let newsautherImg = news.author.img;
           let newsautherDate = news.author.published_date;
-
-          <div class="col-md-4 col-12 my-4 text-center">
-      <img src="${thumbnail_url}" class="img-thumbnail rounded"" alt="image">
-  </div>
-        }
     
-  };
-  
+          const newsListDiv = document.createElement("div");
+          newsListDiv.classList.add("row");
+          newsListDiv.classList.add("mb-5");
+          newsListDiv.classList.add("align-items-center");
+          newsListDiv.classList.add("shadow");
+          newsListDiv.classList.add("p-3");
+          newsListDiv.innerHTML = `
+          <div class="col-md-4 col-12 my-4 text-center">
+          <img src="${thumbnail_url}" class="img-thumbnail rounded"" alt="image">
+      </div>
+      <div class="col-md-8 my-4 col-12">
+          <div>
+              <h4 class="fw-bold">${newstitle}</h4>
+          </div>
+          <div>
+              <p>
+                 ${newsdetails.slice(0, 500) + "..."} 
+              </p>
+          </div>
+         <div>
+        }

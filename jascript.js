@@ -95,6 +95,10 @@ function getNews(cat_id) {
           let newsauther = news.author.name;
           let newsautherImg = news.author.img;
           let newsautherDate = news.author.published_date;
+
+          <div class="col-md-4 col-12 my-4 text-center">
+      <img src="${thumbnail_url}" class="img-thumbnail rounded"" alt="image">
+  </div>
         }
     
   };

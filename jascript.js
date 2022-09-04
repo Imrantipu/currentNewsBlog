@@ -85,5 +85,17 @@ function getNews(cat_id) {
     if (catnews.length <= 0) {
       newslistContainer.innerHTML = `<h2 class="text-center text-xl">No News Found</h2>`;
     } 
+    else {
+        catnews.forEach((news) => {
+          let newstitle = news.title;
+          let newsid = news._id;
+          let newsrating = news.rating.number;
+          let thumbnail_url = news.thumbnail_url;
+          let newsdetails = news.details;
+          let newsauther = news.author.name;
+          let newsautherImg = news.author.img;
+          let newsautherDate = news.author.published_date;
+        }
+    
   };
   

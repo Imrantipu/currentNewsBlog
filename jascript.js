@@ -90,6 +90,8 @@ function getNews(cat_id) {
         catnews.forEach((news) => {
           let newstitle = news.title;
           let newsid = news._id;
+          let newsurl = `https://openapi.programming-hero.com/api/news/${news._id}`;
+          let newsviews = news.total_view;
           let newsrating = news.rating.number;
           let thumbnail_url = news.thumbnail_url;
           let newsdetails = news.details;
@@ -117,4 +119,11 @@ function getNews(cat_id) {
               </p>
           </div>
          <div>
-        }
+         <div class="d-flex justify-content-between align-items-center">
+                  <div class="d-inline-flex align-items-center">
+                    <img src="${newsautherImg}" alt="Auther" class="rounded-circle me-2" width="50" height="50"/>
+                    <div>
+                    <p class="mb-0">${newsauther}</p>
+                    <p class="mb-0">${newsautherDate}</p>
+                    </div>
+                </div>

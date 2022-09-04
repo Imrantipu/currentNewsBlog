@@ -33,3 +33,46 @@ const displayCategories = (categories) => {
     categoriesContainer.classList.add("text-decoration-none");
   });
 };
+
+// news id catched
+function getNews(cat_id) {
+    loader.style.display = "block";
+    document.getElementById("newsList").style.opacity = "0";
+    document.getElementById("newsList").style.transition = "0.3s";
+    let catName = this.innerHTML;
+  
+    try {
+      const loadNewsByCategories = async () => {
+        const caturl = `https://openapi.programming-hero.com/api/news/category/${cat_id}`;
+        const catres = await fetch(caturl);
+        const newdata = await catres.json();
+  
+        displayNewsByCat(newdata.data);
+      };
+      setTimeout(function () {
+        loader.style.display = "none";
+        document.getElementById("news-count").style.display = "none";
+        const displayNewsByCategories = loadNewsByCategories();
+        setTimeout(function () {
+          document.getElementById("newsList").style.opacity = "1";
+          document.getElementById("news-count").style.display = "block";
+        }, 500);
+      }, 2000);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  try {
+    const loadDefaultNewsByCategories = async () => {
+      const decaturl = `https://openapi.programming-hero.com/api/news/category/01`;
+      const decatres = await fetch(decaturl);
+      const dedata = await decatres.json();
+  
+      displayNewsByCat(dedata.data);
+    };
+  
+    const displayDefaultNewsByCategories = loadDefaultNewsByCategories();
+  } catch (err) {
+    console.log(err);
+  }
+  // news id catching done

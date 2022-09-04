@@ -27,10 +27,9 @@ const displayCategories = (categories) => {
   categories.forEach((category) => {
     const categoryDiv = document.createElement("div");
     categoryDiv.innerHTML = `
-        <a href="#" class='show-news' onclick="getNews('${category.category_id}')" class='text-decoration-none'>${category.category_name}</a>
+        <a href="#" class='show-news' onclick="getNews('${category.category_id}')" >${category.category_name}</a>
         `;
-    categoriesContainer.appendChild(categoryDiv);
-    categoriesContainer.classList.add("text-decoration-none");
+    categoriesContainer.appendChild(categoryDiv);  
   });
 };
 
@@ -76,3 +75,15 @@ function getNews(cat_id) {
     console.log(err);
   }
   // news id catching done
+
+//   showing news with creating html elements 
+  const displayNewsByCat = (catnews) => {
+    const newscountDiv = document.getElementById("news-count");
+    newscountDiv.innerHTML = `<h5>${catnews.length} items found for the current category</h5>`;
+    const newslistContainer = document.getElementById("newsList");
+    newslistContainer.innerHTML = ``;
+    if (catnews.length <= 0) {
+      newslistContainer.innerHTML = `<h2 class="text-center text-xl">No News Found</h2>`;
+    } 
+  };
+  
